@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+
+  <!--Publicise the game's assemblies on rebuilds.-->
+  <Target Name="Publicise" AfterTargets="Clean">
+    <Publicise
+      InputAssemblies="@(PubliciseInputAssemblies)"
+      OutputPath="../lib/"/>
+  </Target>
+
+  <!--Prevent game assemblies from being copied (and thus merged).-->
+  <Target Name="ClearCopyLocalReferences" AfterTargets="ResolveAssemblyReferences">
+    <ItemGroup>
+      <ReferenceCopyLocalPaths Remove="$(GameFolder)\* " />
+    </ItemGroup>
+  </Target>
+
+  <!--Merge required assemblies.-->
+  <Target Name="ILRepack" AfterTargets="Build" Condition=" '$(AssemblyName)' != 'AzeLib'">
+    <!--The primary assembly must be the first one, so this is ugly.-->
+    <ItemGroup>
+      <InputAssemblies Include ="$(TargetPath)" />
+      <InputAssemblies
+        Include ="$(TargetDir)\*.dll"
+        Exclude ="$(TargetPath); **/System.*"/>
+    </ItemGroup>
+    <ILRepack
+      TargetPlatformVersion="v2"
+			TargetKind="SameAsPrimaryAssembly"
+			OutputFile="$(TargetPath)"
+			InputAssemblies="@(InputAssemblies)"
+			Wildcards="true"
+      LibraryPath="$(GameFolder)"
+      Parallel="true"/>
+  </Target>
+
+  <!--Copy the mod to the install folder.-->
+  <Target Name="CopyArtifactsToInstallFolder" AfterTargets="ILRepack" Condition=" '$(ShouldDistribute)' != 'false' ">
+    <Copy SourceFiles="$(TargetPath)" DestinationFiles="$(InstallFolder)\$(TargetFileName)" />
+  </Target>
+
+  <!--If releasing, create a zipped version of the mod to distribute for manual downloads.-->
+  <Target Name="Zip" AfterTargets="CopyArtifactsToInstallFolder" Condition=" '$(Configuration)' == 'Release' And '$(ShouldDistribute)' != 'false' ">
+    <CreateItem
+      Include="$(InstallFolder)\**\*.*"
+      Exclude="$(InstallFolder)\*.zip">
+      <Output
+        ItemName="ZipFiles"
+        TaskParameter="Include"/>
+    </CreateItem>
+    <Zip
+      ZipFileName="$(DistributeFolder)\$(ProjectName).zip"
+      WorkingDirectory="$(InstallFolder)"
+      Files="@(ZipFiles)"
+      Flatten="false" />
+  </Target>
+
+</Project>

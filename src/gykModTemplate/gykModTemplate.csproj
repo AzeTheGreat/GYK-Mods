@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Product>Template Project</Product>
+    <AssemblyTitle>Default description.</AssemblyTitle>
+    <Company>Aze</Company>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <ShouldDistribute>false</ShouldDistribute>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Reflection.AssemblyTrademarkAttribute">
+      <_Parameter1>0</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+
+</Project>
