@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Product>Player Judder Fix</Product>
+    <AssemblyTitle>Fix the player judder when moving.</AssemblyTitle>
+    <Company>Aze</Company>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Reflection.AssemblyTrademarkAttribute">
+      <_Parameter1>0</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+
+</Project>
