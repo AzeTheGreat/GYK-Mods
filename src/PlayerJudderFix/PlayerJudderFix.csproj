@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <AssemblyAttribute Include="System.Reflection.AssemblyTrademarkAttribute">
-      <_Parameter1>0</_Parameter1>
+      <_Parameter1>75</_Parameter1>
     </AssemblyAttribute>
   </ItemGroup>
 
