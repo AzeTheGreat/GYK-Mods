@@ -8,10 +8,4 @@
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </PropertyGroup>
 
-  <ItemGroup>
-    <AssemblyAttribute Include="System.Reflection.AssemblyTrademarkAttribute">
-      <_Parameter1>75</_Parameter1>
-    </AssemblyAttribute>
-  </ItemGroup>
-
 </Project>

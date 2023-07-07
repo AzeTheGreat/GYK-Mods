@@ -19,11 +19,11 @@
     <PackageReference><Private>False</Private></PackageReference>
   </ItemDefinitionGroup>
 
-  <!--Publicized References-->
   <ItemGroup>
+    <!--Publicized References-->
     <PubliciseInputAssemblies Include="
-					$(GameAssyFolder)/Assembly-CSharp.dll;
-					$(GameAssyFolder)/Assembly-CSharp-firstpass.dll"/>
+      $(GameAssyFolder)/Assembly-CSharp.dll;
+      $(GameAssyFolder)/Assembly-CSharp-firstpass.dll"/>
     <Reference Include="Assembly-CSharp_public" HintPath="../lib/Assembly-CSharp_public.dll"  />
     <Reference Include="Assembly-CSharp-firstpass_public" HintPath="../lib/Assembly-CSharp-firstpass_public.dll" />
 
