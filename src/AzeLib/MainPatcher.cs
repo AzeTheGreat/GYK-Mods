@@ -5,11 +5,10 @@ namespace AzeLib
 {
     public class MainPatcher
     {
-        public static void Patch()
+        public static void Patch(string guid)
         {
-            var assembly = Assembly.GetExecutingAssembly();
-            var harmony = new Harmony("Aze." + assembly.FullName);
-            harmony.PatchAll(assembly);
+            var harmony = new Harmony(guid);
+            harmony.PatchAll(Assembly.GetExecutingAssembly());
         }
     }
 }

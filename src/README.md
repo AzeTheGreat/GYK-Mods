@@ -21,7 +21,7 @@ Depending on the build configuration, the mods will be handled differently.
 
 - Debug: 
   - Prefixed with `DEV_`.
-  - Exported to GYK's `QMods` folder.
+  - Exported to BepInEx's `plugins` folder.
 - Release:
   - Exported to the Release folder.
   - Zipped and placed in the [Distribute](https://github.com/AzeTheGreat/GYK-Mods/tree/master/Distribute) folder.

@@ -8,10 +8,43 @@
       OutputPath="../lib/"/>
   </Target>
 
+  <!--Generate BepInEx plugin based on assembly properties.-->
+  <!--https://github.com/BepInEx/BepInEx.Templates/blob/master/BepInEx.PluginInfoProps/BepInEx.PluginInfoProps.props-->
+  <Target Name="AddGeneratedFile" BeforeTargets="BeforeCompile;CoreCompile" Inputs="$(MSBuildAllProjects)" Outputs="$(IntermediateOutputPath)GeneratedFile.cs" Condition="'$(AssemblyName)' != 'AzeLib'">
+    <PropertyGroup>
+      <BepInExPluginGuid Condition="'$(BepInExPluginGuid)' == ''">Aze.GYK.$(AssemblyName)</BepInExPluginGuid>
+      <BepInExPluginName Condition="'$(BepInExPluginName)' == ''">$(Product)</BepInExPluginName>
+      <BepInExPluginVersion Condition="'$(BepInExPluginVersion)' == ''">$(Version)</BepInExPluginVersion>
+      <GeneratedText>
+       <![CDATA[
+using BepInEx%3B
+
+namespace AzeLib
+{
+    [BepInPlugin("$(BepInExPluginGuid)", "$(BepInExPluginName)", "$(BepInExPluginVersion)")]
+    public class Plugin : BaseUnityPlugin
+    {
+        private void Awake()
+        {
+            MainPatcher.Patch("$(BepInExPluginGuid)")%3B
+        }
+    }
+}
+      ]]>
+      </GeneratedText>
+      <GeneratedFilePath>$(IntermediateOutputPath)Plugin.cs</GeneratedFilePath>
+    </PropertyGroup>
+    <ItemGroup>
+      <Compile Include="$(GeneratedFilePath)" />
+      <FileWrites Include="$(GeneratedFilePath)" />
+    </ItemGroup>
+    <WriteLinesToFile Lines="$(GeneratedText)" File="$(GeneratedFilePath)" WriteOnlyWhenDifferent="true" Overwrite="true" />
+  </Target>
+
   <!--Prevent game assemblies from being copied (and thus merged).-->
   <Target Name="ClearCopyLocalReferences" AfterTargets="ResolveAssemblyReferences">
     <ItemGroup>
-      <ReferenceCopyLocalPaths Remove="$(GameFolder)\* " />
+      <ReferenceCopyLocalPaths Remove="$(GameFolder)\*; $(BepInExCoreFolder)\* " />
     </ItemGroup>
   </Target>
 
@@ -30,7 +63,7 @@
 			OutputFile="$(TargetPath)"
 			InputAssemblies="@(InputAssemblies)"
 			Wildcards="true"
-      LibraryPath="$(GameFolder)"
+      LibraryPath="$(GameFolder); $(BepInExCoreFolder)"
       Parallel="true"/>
   </Target>
 

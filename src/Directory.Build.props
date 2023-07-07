@@ -7,7 +7,7 @@
 
   <!--Base Settings-->
   <PropertyGroup>
-    <TargetFramework>net48</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>latest</LangVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -35,7 +35,8 @@
     <ProjectReference Include="../AzeLib/AzeLib.csproj" Private ="true" Condition="'$(UsesAzeLib)' != 'false'"/>
 
     <!--Game References-->
-    <Reference Include="0Harmony" HintPath="$(GameFolder)/0Harmony.dll" />
+    <PackageReference Include="BepInEx.Core" Version="5.4.21" />
+    <PackageReference Include="BepInEx.BaseLib" Version="5.4.21" />
     <Reference Include="UnityEngine" HintPath="$(GameFolder)/UnityEngine.dll" />
     <Reference Include="UnityEngine.CoreModule" HintPath="$(GameFolder)/UnityEngine.CoreModule.dll" />
     <Reference Include="UnityEngine.Physics2DModule" HintPath="$(GameFolder)/UnityEngine.Physics2DModule.dll" />
