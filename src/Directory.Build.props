@@ -22,8 +22,8 @@
   <!--Publicized References-->
   <ItemGroup>
     <PubliciseInputAssemblies Include="
-					$(GameFolder)/Assembly-CSharp.dll;
-					$(GameFolder)/Assembly-CSharp-firstpass.dll"/>
+					$(GameAssyFolder)/Assembly-CSharp.dll;
+					$(GameAssyFolder)/Assembly-CSharp-firstpass.dll"/>
     <Reference Include="Assembly-CSharp_public" HintPath="../lib/Assembly-CSharp_public.dll"  />
     <Reference Include="Assembly-CSharp-firstpass_public" HintPath="../lib/Assembly-CSharp-firstpass_public.dll" />
 
@@ -37,9 +37,9 @@
     <!--Game References-->
     <PackageReference Include="BepInEx.Core" Version="5.4.21" />
     <PackageReference Include="BepInEx.BaseLib" Version="5.4.21" />
-    <Reference Include="UnityEngine" HintPath="$(GameFolder)/UnityEngine.dll" />
-    <Reference Include="UnityEngine.CoreModule" HintPath="$(GameFolder)/UnityEngine.CoreModule.dll" />
-    <Reference Include="UnityEngine.Physics2DModule" HintPath="$(GameFolder)/UnityEngine.Physics2DModule.dll" />
+    <Reference Include="UnityEngine" HintPath="$(GameAssyFolder)/UnityEngine.dll" />
+    <Reference Include="UnityEngine.CoreModule" HintPath="$(GameAssyFolder)/UnityEngine.CoreModule.dll" />
+    <Reference Include="UnityEngine.Physics2DModule" HintPath="$(GameAssyFolder)/UnityEngine.Physics2DModule.dll" />
   </ItemGroup>
 
   <!--Direct the output locations based on build configuration.-->

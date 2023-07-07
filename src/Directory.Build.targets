@@ -44,7 +44,7 @@ namespace AzeLib
   <!--Prevent game assemblies from being copied (and thus merged).-->
   <Target Name="ClearCopyLocalReferences" AfterTargets="ResolveAssemblyReferences">
     <ItemGroup>
-      <ReferenceCopyLocalPaths Remove="$(GameFolder)\*; $(BepInExCoreFolder)\* " />
+      <ReferenceCopyLocalPaths Remove="$(GameAssyFolder)\*; $(BepInExAssyFolder)\* " />
     </ItemGroup>
   </Target>
 
@@ -63,7 +63,7 @@ namespace AzeLib
 			OutputFile="$(TargetPath)"
 			InputAssemblies="@(InputAssemblies)"
 			Wildcards="true"
-      LibraryPath="$(GameFolder); $(BepInExCoreFolder)"
+      LibraryPath="$(GameAssyFolder); $(BepInExAssyFolder)"
       Parallel="true"/>
   </Target>
 

@@ -1,11 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project>
   <PropertyGroup>
+    <!--Must be modified to point to the game install location.-->
     <SteamFolder>C:\Program Files (x86)\Steam</SteamFolder>
-    <GameFolder>$(SteamFolder)\steamapps\common\Graveyard Keeper\Graveyard Keeper_Data\Managed</GameFolder>
-    
-    <BepInExFolder>$(SteamFolder)\steamapps\common\Graveyard Keeper\BepInEx</BepInExFolder>
-    <BepInExCoreFolder>$(BepInExFolder)\core</BepInExCoreFolder>
+    <GameFolder>$(SteamFolder)\steamapps\common\Graveyard Keeper</GameFolder>
+
+    <!--Only need to be modified if using non-standard folder structures.-->
+    <GameAssyFolder>$(GameFolder)\Graveyard Keeper_Data\Managed</GameAssyFolder>
+    <BepInExFolder>$(GameFolder)\BepInEx</BepInExFolder>
+    <BepInExAssyFolder>$(BepInExFolder)\core</BepInExAssyFolder>
     <ModFolder>$(BepInExFolder)\plugins</ModFolder>
   </PropertyGroup>
 </Project>
