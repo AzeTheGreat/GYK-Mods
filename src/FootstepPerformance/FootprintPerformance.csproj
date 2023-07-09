@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Product>Footprint Performance</Product>
+    <AssemblyTitle>Adjust footprints to improve game performance.</AssemblyTitle>
+    <Company>Aze</Company>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </PropertyGroup>
+
+</Project>
