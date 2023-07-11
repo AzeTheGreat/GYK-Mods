@@ -7,7 +7,7 @@ namespace FootprintPerformance
     [HarmonyPatch(typeof(LeaveTrailComponent), nameof(LeaveTrailComponent.LeaveTrail))]
     class CapTrails
     {
-        public static int MaxTrails => 100;
+        private static int MaxTrails => AzePlugin.MaxTrails.Value;
 
         static void Postfix()
         {

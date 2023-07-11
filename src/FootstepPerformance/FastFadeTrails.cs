@@ -7,9 +7,9 @@ namespace FootprintPerformance
     [HarmonyPatch(typeof(TrailObject), nameof(TrailObject.Update))]
     static class FastFadeTrails
     {
-        public static float DegSpeedOutside => 1f;
-        public static float DegSpeedInside => 25f;
-        public static float DegSpeedOutsideRain => 100f;
+        private static float DegSpeedOutside => AzePlugin.DegSpeedOutside.Value;
+        private static float DegSpeedInside => AzePlugin.DegSpeedInside.Value;
+        private static float DegSpeedOutsideRain => AzePlugin.DegSpeedOutsideRain.Value;
 
         static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> codes)
         {
