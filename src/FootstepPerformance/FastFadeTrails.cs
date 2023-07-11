@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace PerformanceFixes
+namespace FootprintPerformance
 {
     [HarmonyPatch(typeof(TrailObject), nameof(TrailObject.Update))]
     static class FastFadeTrails

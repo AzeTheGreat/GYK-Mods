@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace PerformanceFixes
+namespace FootprintPerformance
 {
     [HarmonyPatch(typeof(LeaveTrailComponent), nameof(LeaveTrailComponent.LeaveTrail))]
     class CapTrails
