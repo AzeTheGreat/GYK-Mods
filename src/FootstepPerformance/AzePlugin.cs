@@ -1,4 +1,5 @@
-﻿using BepInEx.Configuration;
+﻿using AzeLib;
+using BepInEx.Configuration;
 
 namespace FootprintPerformance
 {
@@ -11,11 +12,24 @@ namespace FootprintPerformance
 
         partial void OnAwake()
         {
-            MaxTrails = Config.Bind("General", "Max Footprints", 100, "The maximum number of footprints allowed.\n" +
-                "If this threshold is exceeded, the oldest footprints will be marked for deletion as soon as they leave the camera view.");
-            DegSpeedOutside = Config.Bind("General", "Degradation Rate (Outside)", 1f, "The rate that footprints degrade when outside. (Unmodded = 0.1)");
-            DegSpeedInside = Config.Bind("General", "Degradation Rate (Inside)", 2.5f, "The rate that footprints degrade when inside. (Unmodded = 2.5)");
-            DegSpeedOutsideRain = Config.Bind("General", "Degradation Rate (Rain)", 10f, "The rate that footprints degrade when in the rain. (Unmodded = 10)");        
+            MaxTrails = Config.Bind(string.Empty, "Max Footprints", 1000,
+                new ConfigDescription("The maximum number of footprints allowed.\n" +
+                "If this threshold is exceeded, the oldest footprints will be marked for deletion as soon as they leave the camera view.",
+                new AcceptableValueRange<int>(0, 10000), null));
+
+            var fadeCat = "Footprint Fade Rate";
+            string GetFadeDesc(string loc, float vanillaVal) => $"The rate (%/s) that footprints fade when {loc}. (Unmodded = {vanillaVal}%/s)";
+            var acceptableVals = new AcceptableValueRange<float>(0f, 100f);
+
+            DegSpeedOutside = Config.Bind(fadeCat, "Outside", 1f,
+                new ConfigDescription(GetFadeDesc("outside", TrailObject.DEGRADE_SPEED_OUTSIDE),
+                acceptableVals, new ConfigurationManagerAttributes() { Order = 0 }));
+            DegSpeedInside = Config.Bind(fadeCat, "Inside", 2.5f,
+                new ConfigDescription(GetFadeDesc("inside", TrailObject.DEGRADE_SPEED_INSIDE),
+                acceptableVals, new ConfigurationManagerAttributes() { Order = -1 }));
+            DegSpeedOutsideRain = Config.Bind(fadeCat, "Rain", 10f,
+                new ConfigDescription(GetFadeDesc("in the rain", TrailObject.DEGRADE_SPEED_OUTSIDE_RAIN),
+                acceptableVals, new ConfigurationManagerAttributes() { Order = -2 }));
         }
     }
 }
