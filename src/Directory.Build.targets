@@ -27,8 +27,8 @@ namespace $(RootNamespace)
     {
         private void Awake()
         {
-            MainPatcher.Patch("$(BepInExPluginGuid)")%3B
             OnAwake()%3B
+            MainPatcher.Patch("$(BepInExPluginGuid)")%3B
         }
 
         partial void OnAwake()%3B
