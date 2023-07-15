@@ -7,15 +7,13 @@ namespace FootprintPerformance
     [HarmonyPatch(typeof(LeaveTrailComponent), nameof(LeaveTrailComponent.LeaveTrail))]
     class CapTrails
     {
-        private static int MaxTrails => AzePlugin.MaxTrails.Value;
-
         static void Postfix()
         {
-            if (MaxTrails == -1)
+            if (AzePlugin.MaxTrails.Value == -1)
                 return;
 
             var allTrails = LeaveTrailComponent._all_trails;
-            if (allTrails.Count > MaxTrails)
+            if (allTrails.Count > AzePlugin.MaxTrails.Value)
             {
                 var oldestTrail = allTrails.First();
                 LeaveTrailComponent.OnTrailObjectDestroyed(oldestTrail);
