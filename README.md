@@ -9,3 +9,4 @@ If you can't download through Nexus Mods, zipped releases are available in the [
 |**Name**|**Description**|
 |---|---|
 |[Fix Player Judder](https://www.nexusmods.com/graveyardkeeper/mods/75)|Fixes the player judder when moving.|
+|[Footprint Performance](https://www.nexusmods.com/graveyardkeeper/mods/83)|Improve footprint performance and fix visual issues.|

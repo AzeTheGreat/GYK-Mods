@@ -12,13 +12,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		NuGet.config = NuGet.config
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PerformanceFixes", "PerformanceFixes\PerformanceFixes.csproj", "{0DD0D2FD-5D0F-4F68-BFA6-2DF303DFC3EE}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzeLib", "AzeLib\AzeLib.csproj", "{C43CAF00-50B1-4D35-8E7D-19D2F710D325}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayerJudderFix", "PlayerJudderFix\PlayerJudderFix.csproj", "{06DEDD4B-C21D-4CB0-92D3-A0E7FAEEF3F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gykModTemplate", "gykModTemplate\gykModTemplate.csproj", "{EF665F03-E861-4390-B852-C8F2F2AA1759}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gykModTemplate", "gykModTemplate\gykModTemplate.csproj", "{EF665F03-E861-4390-B852-C8F2F2AA1759}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FootprintPerformance", "FootstepPerformance\FootprintPerformance.csproj", "{64E555FE-24FE-44C7-96C1-26D588E299A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,10 +26,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0DD0D2FD-5D0F-4F68-BFA6-2DF303DFC3EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0DD0D2FD-5D0F-4F68-BFA6-2DF303DFC3EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0DD0D2FD-5D0F-4F68-BFA6-2DF303DFC3EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0DD0D2FD-5D0F-4F68-BFA6-2DF303DFC3EE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C43CAF00-50B1-4D35-8E7D-19D2F710D325}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C43CAF00-50B1-4D35-8E7D-19D2F710D325}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C43CAF00-50B1-4D35-8E7D-19D2F710D325}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -42,6 +38,10 @@ Global
 		{EF665F03-E861-4390-B852-C8F2F2AA1759}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF665F03-E861-4390-B852-C8F2F2AA1759}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF665F03-E861-4390-B852-C8F2F2AA1759}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64E555FE-24FE-44C7-96C1-26D588E299A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64E555FE-24FE-44C7-96C1-26D588E299A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64E555FE-24FE-44C7-96C1-26D588E299A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64E555FE-24FE-44C7-96C1-26D588E299A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

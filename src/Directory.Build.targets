@@ -18,21 +18,25 @@
       <GeneratedText>
        <![CDATA[
 using BepInEx%3B
+using AzeLib%3B
 
-namespace AzeLib
+namespace $(RootNamespace)
 {
     [BepInPlugin("$(BepInExPluginGuid)", "$(BepInExPluginName)", "$(BepInExPluginVersion)")]
-    public class Plugin : BaseUnityPlugin
+    public partial class AzePlugin : BaseUnityPlugin
     {
         private void Awake()
         {
+            OnAwake()%3B
             MainPatcher.Patch("$(BepInExPluginGuid)")%3B
         }
+
+        partial void OnAwake()%3B
     }
 }
       ]]>
       </GeneratedText>
-      <GeneratedFilePath>$(IntermediateOutputPath)Plugin.cs</GeneratedFilePath>
+      <GeneratedFilePath>$(IntermediateOutputPath)AzePlugin.cs</GeneratedFilePath>
     </PropertyGroup>
     <ItemGroup>
       <Compile Include="$(GeneratedFilePath)" />
