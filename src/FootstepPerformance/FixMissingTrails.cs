@@ -8,6 +8,8 @@ namespace FootprintPerformance
     [HarmonyPatch(typeof(LeaveTrailComponent), MethodType.Constructor, new[] { typeof(BaseCharacterComponent), typeof(string) })]
     class FixSpritelessTrail
     {
+        static bool Prepare() => AzePlugin.ShouldFixMissingTrails.Value;
+
         static void Postfix(LeaveTrailComponent __instance)
         {
             foreach (var def in __instance._trail_definition.trails)
@@ -25,6 +27,8 @@ namespace FootprintPerformance
     [HarmonyPatch(typeof(LeaveTrailComponent), (nameof(LeaveTrailComponent.LeaveTrail)))]
     class FixTrailSwitchSkip
     {
+        static bool Prepare() => AzePlugin.ShouldFixMissingTrails.Value;
+
         static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> codes)
         {
             var getByType_method = AccessTools.Method(typeof(TrailDefinition), nameof(TrailDefinition.GetByType));

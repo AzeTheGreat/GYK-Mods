@@ -8,12 +8,12 @@ namespace FootprintPerformance
     [HarmonyPatch(typeof(LeaveTrailComponent), nameof(LeaveTrailComponent.LeaveTrail))]
     static class OverrideTrailUpdateThresh
     {
+        public const float UNMODDED_THRESH = 0.1f;
+
         static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> codes)
         {
-            var unmoddedThresh = 0.1f;
-
             return new CodeMatcher(codes)
-                .SearchForward(i => i.LoadsConstant(unmoddedThresh))
+                .SearchForward(i => i.LoadsConstant(UNMODDED_THRESH))
                 .Set(OpCodes.Ldarg_0, null)
                 .InsertAfter(Transpilers.EmitDelegate(GetNewThreshold))
                 .InstructionEnumeration();
@@ -25,9 +25,9 @@ namespace FootprintPerformance
                     // Only override the threshold if the new ground type has its own trails.
                     var groundDef = cmp._trail_definition.GetByType(cmp._ground_under);
                     if (groundDef.HasAnyTrailSprites())
-                        return 0.5f;
+                        return AzePlugin.TrailUpdateThreshold.Value;
                 }
-                return unmoddedThresh;
+                return UNMODDED_THRESH;
             }
         }
     }
